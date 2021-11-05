@@ -95,3 +95,16 @@ fun Route.getAllAnimals() {
         }
     }
 }
+
+fun Route.getImage() {
+    get("/search/{term}") {
+        val term = call.parameters["term"]
+        val search = "https://yandex.com/images/search?text=$term"
+        println("Search URL: $search")
+
+        val imageLinkUtil = ImageLinkUtil()
+        val documentText = imageLinkUtil.getDocumentString(search)
+        val url = imageLinkUtil.getUrlFromDuckDuckGoImagesHtml(documentText)
+        call.respondText(url)
+    }
+}

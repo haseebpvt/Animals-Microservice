@@ -9,8 +9,8 @@ fun Route.getAllApiList() {
     get("/") {
         call.respondText {
             """
-                    GET: /getAllAnimals
-                    GET: /getAnimal/{id}
+                    GET: https://pensource.el.r.appspot.com/getAllAnimals
+                    GET: https://pensource.el.r.appspot.com/getAnimal/{id}
                     
                     POST: /saveAnimal
                         Example input JSON:
@@ -23,7 +23,7 @@ fun Route.getAllApiList() {
                                 "image": "#"
                             }
                             
-                    GET: /clear
+                    GET: https://pensource.el.r.appspot.com/clear
                 """.trimIndent()
         }
     }
