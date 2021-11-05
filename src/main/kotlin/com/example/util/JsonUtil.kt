@@ -12,7 +12,7 @@ fun jsonResponse(
     success: Int,
     statusCode: Int,
     message: String,
-    response: Any
+    response: Any?
 ): String {
     return gson.toJson(Response(success, statusCode, message, response))
 }

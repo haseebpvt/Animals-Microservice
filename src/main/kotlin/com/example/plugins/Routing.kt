@@ -1,19 +1,23 @@
 package com.example.plugins
 
-import com.example.util.SUCCESS
-import com.example.util.TestData
-import com.example.util.jsonResponse
+import com.example.route.animal.getAllAnimals
+import com.example.route.animal.getAnimalById
+import com.example.route.animal.saveAnimal
+import com.example.route.general.clear
+import com.example.route.general.getAllApiList
 import io.ktor.application.*
-import io.ktor.http.*
-import io.ktor.response.*
 import io.ktor.routing.*
 
 fun Application.configureRouting() {
 
     routing {
-        get("/getAnimalList") {
-            val animal = jsonResponse(SUCCESS, HttpStatusCode.OK.value, "Success", TestData.animalList)
-            call.respond(animal)
-        }
+        // General
+        getAllApiList()
+
+        // Animal
+        getAnimalById()
+        getAllAnimals()
+        saveAnimal()
+        clear()
     }
 }
