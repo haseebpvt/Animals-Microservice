@@ -1,0 +1,2 @@
+runtime: java11
+entrypoint: 'java -jar com.example.animal-service-0.0.1-all.jar'
